@@ -1,29 +1,27 @@
 {
   "devDependencies": {
-    "vitepress": "latest",
-    "pinia": "latest",
-
     "@deck.gl/core": "latest",
     "@deck.gl/geo-layers": "latest",
     "@deck.gl/layers": "latest",
     "@deck.gl/mapbox": "latest",
-    "maplibre-gl": "latest",
-
-    "element-plus": "latest",
     "@element-plus/icons-vue": "^2.3.1",
-    "unplugin-auto-import": "latest",
-    "unplugin-vue-components": "latest",
-
-    "vue-draggable-plus": "^0.6.0",
-
     "d3": "^7.9.0",
     "d3-scale": "^4.0.2",
-    "d3-scale-chromatic": "^3.1.0"
+    "d3-scale-chromatic": "^3.1.0",
+    "element-plus": "latest",
+    "maplibre-gl": "latest",
+    "pinia": "latest",
+    "unplugin-auto-import": "latest",
+    "unplugin-vue-components": "latest",
+    "vitepress": "latest",
+    "vue-draggable-plus": "^0.6.0"
   },
-
   "scripts": {
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs"
+  },
+  "dependencies": {
+    "scrollama": "^3.2.0"
   }
 }
