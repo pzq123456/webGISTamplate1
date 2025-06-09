@@ -1,20 +1,16 @@
 <template>
-  <div :id="uid" :style="{ width: width, height: height }"></div>
+  <div :style="{ width: width, height: height }" ref="mapContainerRef"></div>
 </template>
 
 <script setup>
 import { useData } from 'vitepress'
 const { isDark } = useData();
 
-// 生成随机的 uid map+..
-const generateUid = () => {
-  return 'map-' + Math.random().toString(36).substr(2, 9);
-};
-const uid = generateUid();
-
 import { onMounted, onUnmounted, watch, computed, ref } from 'vue';
 import maplibregl from 'maplibre-gl';
 import 'maplibre-gl/dist/maplibre-gl.css';
+
+const mapContainerRef = ref(null);
 
 const props = defineProps({
   center: {
@@ -64,7 +60,6 @@ const emit = defineEmits(['map-loaded', 'map-move', 'map-click', 'map-rendered']
 
 const map = ref(null);
 const isMapLoaded = ref(false);
-const deckOverlay = ref(null);
 
 // 默认样式
 const lightStyle = 'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json';
@@ -79,7 +74,7 @@ const mapStyle = computed(() => {
 // 初始化地图
 const initMap = () => {
   map.value = new maplibregl.Map({
-    container: uid,
+    container: mapContainerRef.value,
     style: mapStyle.value,
     center: props.center,
     zoom: props.zoom,
@@ -164,15 +159,14 @@ watch(mapStyle, (newStyle) => {
   }
 });
 
-onMounted(initMap);
+onMounted(
+  () => {
+    initMap();
+  },
+);
 
 onUnmounted(() => {
   if (map.value) {
-    // 先移除所有 Deck.gl 图层
-    if (deckOverlay.value) {
-      deckOverlay.value.finalize();
-      map.value.removeControl(deckOverlay.value);
-    }
     // 然后移除地图
     map.value.remove();
     map.value = null;
@@ -183,19 +177,6 @@ onUnmounted(() => {
 defineExpose({
   map,
   isMapLoaded,
-  deckOverlay: {
-    get: () => deckOverlay.value,
-    set: (overlay) => {
-      if (deckOverlay.value) {
-        map.value.removeControl(deckOverlay.value);
-        deckOverlay.value.finalize();
-      }
-      deckOverlay.value = overlay;
-      if (isMapLoaded.value && overlay) {
-        map.value.addControl(overlay);
-      }
-    }
-  },
   flyTo: (options) => {
     if (isMapLoaded.value) {
       map.value.flyTo(options);
