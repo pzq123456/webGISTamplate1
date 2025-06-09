@@ -1,5 +1,4 @@
 import { MapboxOverlay } from '@deck.gl/mapbox';
-import { onUnmounted } from 'vue';
 
 export function useDeckOverlay(map, options = {}) {
   const defaultOptions = {
@@ -25,9 +24,6 @@ export function useDeckOverlay(map, options = {}) {
       deckOverlay.finalize();
     }
   };
-
-  // 自动清理
-  onUnmounted(cleanup);
 
   // 暴露方法
   return {

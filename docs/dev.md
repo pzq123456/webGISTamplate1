@@ -1,9 +1,10 @@
 ---
 layout: page
+# navbar: false
 ---
 
-<StickyGraphic />
+<App />
 
 <script setup>
-import StickyGraphic from '@/components/StickySide.vue';
+    import App from '@/layouts/singlePage/app.vue';
 </script>

@@ -1,10 +1,16 @@
 <template>
-  <div id="map" :style="{ width: width, height: height }"></div>
+  <div :id="uid" :style="{ width: width, height: height }"></div>
 </template>
 
 <script setup>
 import { useData } from 'vitepress'
 const { isDark } = useData();
+
+// 生成随机的 uid map+..
+const generateUid = () => {
+  return 'map-' + Math.random().toString(36).substr(2, 9);
+};
+const uid = generateUid();
 
 import { onMounted, onUnmounted, watch, computed, ref } from 'vue';
 import maplibregl from 'maplibre-gl';
@@ -73,7 +79,7 @@ const mapStyle = computed(() => {
 // 初始化地图
 const initMap = () => {
   map.value = new maplibregl.Map({
-    container: 'map',
+    container: uid,
     style: mapStyle.value,
     center: props.center,
     zoom: props.zoom,
