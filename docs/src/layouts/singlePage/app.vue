@@ -10,6 +10,7 @@
                 <!-- Sticky Graphic -->
                 <div class="sticky-graphic" >
                     <MapComponent ref="mapRef" :center="viewState.center" :zoom="viewState.zoom"
+                        :pitch="viewState.pitch" 
                         @map-loaded="onMapLoaded" />
                 </div>
                 <!-- Scroll Steps -->
@@ -25,6 +26,8 @@
 <script setup>
 import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue';
 
+import { hexagonLayer } from './layers.js';
+
 import HeaderComponent from './header.vue';
 import FooterComponent from './footer.vue';
 
@@ -39,8 +42,9 @@ import { steps } from './steps.js'; // Import the steps data
 // Map-related state
 const mapRef = ref(null);
 const viewState = {
-    center: [45, 51.47], // Default: London
-    zoom: 11
+    center: [0, 0], // Default: London
+    zoom: 2,
+    pitch: 30
 };
 
 let deckOverlay = null;
@@ -59,6 +63,14 @@ let scroller;
 
 function onMapLoaded(map) {
     onMapLoadedUtil(map, setDeckOverlay, setDeckOverlayCleanup);
+    // Initialize hexagon layer
+    if (deckOverlay) {
+        deckOverlay.setProps({
+            layers: [hexagonLayer]
+        });
+    } else {
+        console.warn('Deck overlay is not initialized');
+    }
 }
 
 function handleStepEnter({ element }) {

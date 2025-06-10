@@ -1,5 +1,11 @@
 export const steps = [
     {
+        id: '0',
+        title: 'Welcome to the Map Tour',
+        content: 'This is a guided tour of the map features.',
+        mapConfig: { center: [0, 0], zoom: 2, pitch: 30}
+    },
+    {
         id: '1',
         title: 'Step 1: USA',
         content: 'Explore the United States on the map.',

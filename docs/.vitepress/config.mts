@@ -8,4 +8,5 @@ export default defineConfig({
   base: '/webGISTamplate1/',
   themeConfig: themeConfig,
   vite: viteConfig,
+  appearance: 'force-dark',
 })
