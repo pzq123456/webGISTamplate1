@@ -28,4 +28,5 @@ export const viteConfig = {
     ssr: {
       noExternal: ['test-design-vue', 'element-plus'],
     },
+    assetsInclude: ['/data'] // 资产守护
 }
