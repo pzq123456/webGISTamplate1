@@ -55,9 +55,11 @@ import { onMapLoaded as onMapLoadedUtil } from './mapUtils.js';
 import { createHexagonLayer } from './layers.js';
 import { steps } from './steps.js';
 
-// 数据URL
-const url = withBase('data/points2024.json');
-const url2 = withBase('data/points2022.json');
+import url from '../../../data/points2024.json';
+import url2 from '../../../data/points2022.json';
+
+
+console.log('Data URL:', url);
 
 // 地图状态
 const mapRef = ref(null);

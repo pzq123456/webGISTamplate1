@@ -1,9 +1,5 @@
 import { HexagonLayer } from '@deck.gl/aggregation-layers';
 
-import { withBase } from 'vitepress';
-const url = withBase('data/points2024.json');
-const url2 = withBase('data/points2022.json');
-
 const COLOR_RANGE = [
     [1, 152, 189],
     [73, 227, 206],
@@ -13,7 +9,7 @@ const COLOR_RANGE = [
     [209, 55, 78]
 ];
 
-export function createHexagonLayer(data = url) {
+export function createHexagonLayer(data) {
     return new HexagonLayer({
         id: 'heatmap',
         colorRange: COLOR_RANGE,

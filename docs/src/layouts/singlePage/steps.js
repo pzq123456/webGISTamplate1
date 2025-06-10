@@ -1,6 +1,5 @@
-import { withBase } from 'vitepress';
-const url = withBase('data/points2024.json');
-const url2 = withBase('data/points2022.json');
+import url from '../../../data/points2024.json';
+import url2 from '../../../data/points2022.json';
 
 export const steps = [
     {
