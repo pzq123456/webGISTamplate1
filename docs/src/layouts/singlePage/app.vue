@@ -25,8 +25,11 @@
 
 <script setup>
 import { ref, computed, onMounted, onUnmounted, nextTick } from 'vue';
+import { withBase } from 'vitepress';
+const url = withBase('data/points2024.json');
+const url2 = withBase('data/points2022.json');
 
-import { hexagonLayer } from './layers.js';
+import { createHexagonLayer } from './layers.js';
 
 import HeaderComponent from './header.vue';
 import FooterComponent from './footer.vue';
@@ -42,9 +45,8 @@ import { steps } from './steps.js'; // Import the steps data
 // Map-related state
 const mapRef = ref(null);
 const viewState = {
-    center: [0, 0], // Default: London
+    center: [0, 50], 
     zoom: 2,
-    pitch: 30
 };
 
 let deckOverlay = null;
@@ -63,10 +65,9 @@ let scroller;
 
 function onMapLoaded(map) {
     onMapLoadedUtil(map, setDeckOverlay, setDeckOverlayCleanup);
-    // Initialize hexagon layer
     if (deckOverlay) {
         deckOverlay.setProps({
-            layers: [hexagonLayer]
+            layers: createHexagonLayer(url)
         });
     } else {
         console.warn('Deck overlay is not initialized');
@@ -74,26 +75,27 @@ function onMapLoaded(map) {
 }
 
 function handleStepEnter({ element }) {
-    try {
-        if (element) {
-            const stepId = element.dataset.step;
-            const step = steps.find(s => s.id === stepId);
-            if (step?.mapConfig && mapRef.value) {
-                mapRef.value.flyTo({
-                    center: step.mapConfig.center,
-                    zoom: step.mapConfig.zoom,
-                    pitch: step.mapConfig.pitch || 0,
-                    duration: 2000
+    if (element) {
+        const stepId = element.dataset.step;
+        const step = steps.find(s => s.id === stepId);
+        if (step?.mapConfig && mapRef.value) {
+            mapRef.value.flyTo({
+                center: step.mapConfig.center,
+                zoom: step.mapConfig.zoom,
+                pitch: step.mapConfig.pitch || 0,
+                duration: 3000
+            });
+
+            if (deckOverlay) {
+                deckOverlay.setProps({
+                    layers: createHexagonLayer(step.url)
                 });
             } else {
-                // 默认 case 捕捉
-                console.warn(`No mapConfig found for stepId: ${stepId}`);
+                console.warn('Deck overlay is not initialized');
             }
         }
-    } catch (error) {
-        console.error('Step enter error:', error);
     }
-}
+};
 
 // Lifecycle Hooks
 onMounted(() => {
