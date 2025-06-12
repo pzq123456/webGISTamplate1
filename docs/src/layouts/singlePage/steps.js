@@ -2,21 +2,6 @@ import url from '../../../data/points2024.json';
 import url2 from '../../../data/points2022.json';
 
 export const steps = [
-    {
-        id: '0',
-        title: 'Global Overview (2022)',
-        content: 'Starting point: Global distribution of resources in 2022 before major geopolitical shifts.',
-        mapConfig: { center: [0, 0], zoom: 2, pitch: 30},
-        url: url2,
-    },
-    {
-        id: '1',
-        title: 'Global Overview (2024)',
-        content: 'Notice the significant changes in global distribution compared to 2022, reflecting recent developments.',
-        mapConfig: { center: [0, 0], zoom: 2, pitch: 30},
-        url: url,
-    },
-
     // USA Comparison
     {
         id: '2',
@@ -64,15 +49,4 @@ export const steps = [
         mapConfig: { center: [10.0, 50.0], zoom: 4, pitch: 40},
         url: url,
     },
-
-    // Final Comparison
-    {
-        id: '8',
-        title: 'Global Changes: Side-by-Side',
-        content: 'Final comparison highlighting the most dramatic shifts between 2022 and 2024 worldwide.',
-        mapConfig: { center: [0, 0], zoom: 2, pitch: 30},
-        url: url2,
-        compareWith: url,
-        compareMode: true
-    }
 ];

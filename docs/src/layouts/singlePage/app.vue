@@ -163,6 +163,7 @@ onUnmounted(() => {
   display: flex;
   flex-direction: row;
   height: 100vh;
+
 }
 
 .scroll-section {
