@@ -81,7 +81,8 @@ const initMap = () => {
     bearing: props.bearing,
     pitch: props.pitch,
     preserveDrawingBuffer: props.preserveDrawingBuffer,
-    antialias: true // 更好的抗锯齿效果，适合与deck.gl结合
+    antialias: true, // 更好的抗锯齿效果，适合与deck.gl结合
+    attributionControl: false // 禁用右下角的属性控件
   });
 
   // 添加常用事件监听

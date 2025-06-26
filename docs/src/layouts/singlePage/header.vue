@@ -7,15 +7,15 @@
         <span class="subtitle" ref="subtitle">Insights from a spatial planning perspective.</span>
       </h1>
       <div class="links-container">
-        <a href="https://example.com" class="link">Team Website</a>
+        <a href="https://globalevdata.github.io/" class="link">Project Website</a>
         <span class="divider">•</span>
-        <a href="https://arxiv.org" class="link">Published Paper</a>
+        <a href="#" class="link">Published Paper</a>
         <span class="divider">•</span>
-        <a href="https://github.com/example/project" class="link">GitHub Repository</a>
+        <a href="https://github.com/XanderPENG/global-evcs" class="link">GitHub Repository</a>
       </div>
       <hr class="decorative-line">
       <div class="intro-text">
-        <p>This study leverages global geospatial data to map public electric vehicle charging stations. We analyze their distribution patterns to inform urban planning and sustainable transportation policies. Our findings support stakeholders in optimizing infrastructure for widespread EV adoption.</p>
+        <p>In a world where electric vehicles (EVs) are swiftly gaining momentum, understanding the global landscape of EV charging infrastructure is of utmost importance. This study investigates the spatial distribution of public EV charging stations (EVCSs) worldwide, with a focus on China, the United States (US), and Europe, which account for approximately 90% of the global public EV chargers. Our findings indicate that EVCSs in Europe primarily serve those residential areas with a higher population density, while EVCSs in both China and the US tend to be deployed in those areas with moderate housing prices; furthermore, China primarily deployed EVCSs in those commercial and administrative areas with less diverse amenities nearby; in terms of accessibility, EVCSs in China and Europe tend to be deployed in those areas with a relatively inferior road network accessibility. Understanding these disparities is crucial for policymakers and planners to address the challenges and promote equitable access to EV chargers across different regions, in order for a sustainable and inclusive transition to electric mobility.</p>
       </div>
     </div>
     <p class="hint">↓ Scroll down to continue ↓</p>

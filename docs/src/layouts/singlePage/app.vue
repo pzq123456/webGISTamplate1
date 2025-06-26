@@ -5,6 +5,9 @@
       <!-- header -->
       <HeaderComponent />
 
+      <part1 />
+
+
       <div class="scroll-container">
         <!-- Sticky Graphic -->
         <div class="sticky-graphic">
@@ -19,6 +22,7 @@
         
         <!-- Scroll Steps -->
         <ScrollSteps :steps="steps" ref="scrollStepsRef" />
+
       </div>
 
       <!-- footer -->
@@ -49,6 +53,8 @@ import FooterComponent from './footer.vue';
 import MapComponent from '@/components/MapComponent.vue';
 import ScrollSteps from './ScrollSteps.vue';
 
+import part1 from './part1.vue';
+
 // 工具函数和数据
 import { initScrollama } from './scrollUtils.js';
 import { onMapLoaded as onMapLoadedUtil } from './mapUtils.js';
@@ -59,7 +65,7 @@ import url from '../../../data/points2024.json';
 import url2 from '../../../data/points2022.json';
 
 
-console.log('Data URL:', url);
+// console.log('Data URL:', url);
 
 // 地图状态
 const mapRef = ref(null);
@@ -163,7 +169,6 @@ onUnmounted(() => {
   display: flex;
   flex-direction: row;
   height: 100vh;
-
 }
 
 .scroll-section {
