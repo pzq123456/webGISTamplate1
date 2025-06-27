@@ -28,12 +28,12 @@
       <FooterComponent />
 
       <!-- 返回顶部按钮 -->
-      <button class="back-to-top" :class="{ 'show': showBackToTop }" @click="scrollToTop" aria-label="返回顶部">
+      <!-- <button class="back-to-top" :class="{ 'show': showBackToTop }" @click="scrollToTop" aria-label="返回顶部">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M18 15l-6-6-6 6" />
         </svg>
-      </button>
+      </button> -->
     </div>
   </div>
 </template>
@@ -83,19 +83,19 @@ const scrollStepsRef = ref(null);
 const scrollSection = ref(null);
 let scroller;
 
-// 返回顶部功能
-const showBackToTop = ref(false);
+// // 返回顶部功能
+// const showBackToTop = ref(false);
 
-const checkScroll = () => {
-  showBackToTop.value = scrollSection.value.scrollTop > 300;
-};
+// const checkScroll = () => {
+//   showBackToTop.value = scrollSection.value.scrollTop > 300;
+// };
 
-const scrollToTop = () => {
-  scrollSection.value.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  });
-};
+// const scrollToTop = () => {
+//   scrollSection.value.scrollTo({
+//     top: 0,
+//     behavior: 'smooth'
+//   });
+// };
 
 function setDeckOverlay(instance) {
   deckOverlay = instance;
