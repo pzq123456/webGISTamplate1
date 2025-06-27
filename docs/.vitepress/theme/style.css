@@ -57,6 +57,8 @@
   --vp-c-brand-1: #1b8c59; /* 新主题色 */
   --vp-c-brand-2: #19df9d; /* 新主题色 */
   --vp-c-brand-3: #30923f; /* 新主题色 */
+  --vp-c-brand-soft: var(--vp-c-indigo-soft);
+
 
   --vp-c-tip-1: var(--vp-c-brand-1);
   --vp-c-tip-2: var(--vp-c-brand-2);

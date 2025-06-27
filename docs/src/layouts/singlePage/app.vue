@@ -7,13 +7,13 @@
 
       <part1 />
 
-      <!-- <div class="scroll-container">
+      <div class="scroll-container">
         <div class="sticky-graphic">
           <MapComponent ref="mapRef" :center="viewState.center" :zoom="viewState.zoom" :pitch="viewState.pitch"
             @map-loaded="onMapLoaded" />
         </div>
         <ScrollSteps :steps="steps" ref="scrollStepsRef" />
-      </div> -->
+      </div>
 
       <part2 />
 
