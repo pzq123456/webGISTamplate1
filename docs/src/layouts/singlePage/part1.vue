@@ -8,9 +8,6 @@
                 :src="imageSrc" 
                 :alt="imageAlt" 
                 :caption="caption"
-                :gradientBorder="false"
-                :shadow="false"
-                bgcolor="var(--vp-c-bg-soft)"
             />
         </div>
     </section>

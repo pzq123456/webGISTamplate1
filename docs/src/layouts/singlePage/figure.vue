@@ -46,7 +46,6 @@ const captionStyle = computed(() => ({
             :alt="alt"
             :fit="fit"
             :style="imageStyle"
-            lazy
             class="image-content"
         />
         <figcaption v-if="caption" :style="captionStyle">{{ caption }}</figcaption>
