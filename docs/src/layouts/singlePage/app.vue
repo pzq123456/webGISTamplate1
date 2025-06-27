@@ -25,6 +25,15 @@
 
       </div>
 
+      <part2 />
+
+      <part3 />
+
+      <part4 />
+
+      <!-- Acknowledgement -->
+      <Acknowledgement />
+
       <!-- footer -->
       <FooterComponent />
 
@@ -45,7 +54,8 @@
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
-import { withBase } from 'vitepress';
+import pkg from 'lodash';
+const { throttle } = pkg;
 
 // 组件引入
 import HeaderComponent from './header.vue';
@@ -53,7 +63,15 @@ import FooterComponent from './footer.vue';
 import MapComponent from '@/components/MapComponent.vue';
 import ScrollSteps from './ScrollSteps.vue';
 
+// acknowledgement
+
+import Acknowledgement from './acknowledgement.vue';
+
 import part1 from './part1.vue';
+import part2 from './part2.vue';
+import part3 from './part3.vue';
+import part4 from './part4.vue';
+
 
 // 工具函数和数据
 import { initScrollama } from './scrollUtils.js';
@@ -62,8 +80,6 @@ import { createHexagonLayer } from './layers.js';
 import { steps } from './steps.js';
 
 import url from '../../../data/points2024.json';
-import url2 from '../../../data/points2022.json';
-
 
 // console.log('Data URL:', url);
 
@@ -119,12 +135,17 @@ function handleStepEnter({ element }) {
     const stepId = element.dataset.step;
     const step = steps.find(s => s.id === stepId);
     if (step?.mapConfig && mapRef.value) {
-      mapRef.value.flyTo({
-        center: step.mapConfig.center,
-        zoom: step.mapConfig.zoom,
-        pitch: step.mapConfig.pitch || 0,
-        duration: 3000
-      });
+      // throttle the flyTo call to avoid performance issues
+ 
+
+      throttle(() => {
+        mapRef.value.flyTo({
+          center: step.mapConfig.center,
+          zoom: step.mapConfig.zoom,
+          pitch: step.mapConfig.pitch || 0,
+          duration: 3000
+        });
+      }, 1000)();
 
       if (deckOverlay) {
         deckOverlay.setProps({

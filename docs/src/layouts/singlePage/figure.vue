@@ -30,7 +30,7 @@ const imageStyle = computed(() => ({
 }))
 
 const captionStyle = computed(() => ({
-    color: 'var(--vp-c-text-2, #a0aec0)',
+    color: 'var(--vp-c-text-3, #a0aec0)',
     fontSize: '0.95em',
     marginTop: '12px',
     opacity: '0.9',
@@ -56,7 +56,6 @@ const captionStyle = computed(() => ({
 <style scoped>
 .image-wrapper {
     overflow: hidden;
-    background-color: var(--vp-c-bg-1, #ffffff);
     position: relative;
 }
 .image-content:hover {

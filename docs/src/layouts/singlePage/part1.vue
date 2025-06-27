@@ -18,7 +18,7 @@
 
 <script setup>
 import { ref } from 'vue'
-import Figure from './Figure.vue'
+import Figure from './figure.vue'
 
 import imageSrc from './assets/img1.png'
 
@@ -27,7 +27,7 @@ const introText = ref(`
 `)
 
 const imageAlt = "Fig. 1"
-const caption = `Fig. 1 Overview of Global Public EVCSs: Geographical Locations and Statistical Distributions. a, Global distribution of public EV chargers according to IEA37. b, Geographical locations of three study areas, i.e., China, the US, and Europe, and their representative city clusters. The proportion of public EV chargers owned by each city cluster is presented. An introduction to these city clusters can be found in Appendix B of the Supplementary Materials. c, Statistical distribution of the collected public EVCS location data (the spatial distribution can be found in Appendix C of the Supplementary Materials). The EVCS number and sampling ratio of the three study areas are presented. d, Associations between the reported public EV charger number/density and GDP, characterized by ordinary least squares (OLS) regression analyses. Each point represents a specific region (province for China, state for the US, and country for Europe) and is used to construct a regression line, with a shaded region indicating the 95% confidence interval.`
+const caption = `Fig. 1 | Overview of Global Public EVCSs: Geographical Locations and Statistical Distributions. a, Global distribution of public EV chargers according to IEA37. b, Geographical locations of three study areas, i.e., China, the US, and Europe, and their representative city clusters. The proportion of public EV chargers owned by each city cluster is presented. An introduction to these city clusters can be found in Appendix B of the Supplementary Materials. c, Statistical distribution of the collected public EVCS location data (the spatial distribution can be found in Appendix C of the Supplementary Materials). The EVCS number and sampling ratio of the three study areas are presented. d, Associations between the reported public EV charger number/density and GDP, characterized by ordinary least squares (OLS) regression analyses. Each point represents a specific region (province for China, state for the US, and country for Europe) and is used to construct a regression line, with a shaded region indicating the 95% confidence interval.`
 
 </script>
 
@@ -39,7 +39,6 @@ const caption = `Fig. 1 Overview of Global Public EVCSs: Geographical Locations 
     gap: 1.8rem;
     margin: 2rem 0;
     padding: 1.5rem;
-    background-color: var(--vp-c-bg-soft);
     border-radius: 2px;
     position: relative;
 }

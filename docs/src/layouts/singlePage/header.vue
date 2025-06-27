@@ -94,7 +94,7 @@ onMounted(() => {
 }
 
 .intro-section .highlight {
-  background: linear-gradient(90deg, var(--vp-c-green-1) 0%, var(--vp-c-brand-2) 100%);
+  background: linear-gradient(90deg, var(--vp-c-green-1) 0%, var(--vp-c-indigo-2) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -140,7 +140,7 @@ onMounted(() => {
 .decorative-line {
   width: 80%;
   height: 2px;
-  background: linear-gradient(to right, var(--vp-c-green-1), var(--vp-c-brand-2), transparent);
+  background: linear-gradient(to right, var(--vp-c-green-1), var(--vp-c-indigo-2), transparent);
   border: none;
   margin: 1.5rem auto;
 }
