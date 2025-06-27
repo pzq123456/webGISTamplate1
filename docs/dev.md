@@ -6,5 +6,5 @@ navbar: false
 <App />
 
 <script setup>
-    import App from '@/layouts/singlePage/app.vue';
+    import App from '@/layouts/singlePage/app2.vue';
 </script>
