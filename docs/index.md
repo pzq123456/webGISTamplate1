@@ -3,6 +3,7 @@ layout: page
 navbar: false
 ---
 
+
 <App />
 
 <script setup>

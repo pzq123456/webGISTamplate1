@@ -5,31 +5,21 @@
       <!-- header -->
       <HeaderComponent />
 
-      <!-- <part1 /> -->
+      <part1 />
 
-
-      <div class="scroll-container">
-        <!-- Sticky Graphic -->
+      <!-- <div class="scroll-container">
         <div class="sticky-graphic">
-          <MapComponent 
-            ref="mapRef" 
-            :center="viewState.center" 
-            :zoom="viewState.zoom"
-            :pitch="viewState.pitch" 
-            @map-loaded="onMapLoaded" 
-          />
+          <MapComponent ref="mapRef" :center="viewState.center" :zoom="viewState.zoom" :pitch="viewState.pitch"
+            @map-loaded="onMapLoaded" />
         </div>
-        
-        <!-- Scroll Steps -->
         <ScrollSteps :steps="steps" ref="scrollStepsRef" />
+      </div> -->
 
-      </div>
-
-      <!-- <part2 />
+      <part2 />
 
       <part3 />
 
-      <part4 /> -->
+      <part4 />
 
       <!-- Acknowledgement -->
       <Acknowledgement />
@@ -38,14 +28,10 @@
       <FooterComponent />
 
       <!-- 返回顶部按钮 -->
-      <button 
-        class="back-to-top" 
-        :class="{ 'show': showBackToTop }"
-        @click="scrollToTop"
-        aria-label="返回顶部"
-      >
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M18 15l-6-6-6 6"/>
+      <button class="back-to-top" :class="{ 'show': showBackToTop }" @click="scrollToTop" aria-label="返回顶部">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M18 15l-6-6-6 6" />
         </svg>
       </button>
     </div>
@@ -86,7 +72,7 @@ import url from '../../../data/points2024.json';
 // 地图状态
 const mapRef = ref(null);
 const viewState = {
-  center: [0, 50], 
+  center: [0, 50],
   zoom: 2,
   pitch: 0
 };
@@ -136,7 +122,7 @@ function handleStepEnter({ element }) {
     const step = steps.find(s => s.id === stepId);
     if (step?.mapConfig && mapRef.value) {
       // throttle the flyTo call to avoid performance issues
- 
+
 
       throttle(() => {
         mapRef.value.flyTo({
@@ -162,7 +148,7 @@ function handleStepEnter({ element }) {
 onMounted(() => {
   // 初始化滚动监听
   scrollSection.value.addEventListener('scroll', checkScroll);
-  
+
   // 初始化Scrollama
   if (scrollStepsRef.value?.stepElements) {
     scroller = initScrollama(scrollStepsRef.value.stepElements, handleStepEnter);
@@ -172,7 +158,7 @@ onMounted(() => {
 onUnmounted(() => {
   // 清理事件监听
   scrollSection.value?.removeEventListener('scroll', checkScroll);
-  
+
   // 销毁Scrollama实例
   try {
     scroller?.destroy();
@@ -220,7 +206,7 @@ onUnmounted(() => {
   width: 50px;
   height: 50px;
   border-radius: 50%;
-    border: 1px solid #3aa876;
+  border: 1px solid #3aa876;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -240,8 +226,8 @@ onUnmounted(() => {
 
 .back-to-top:hover {
   transform: translateY(-3px);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-    background-color: #f0f0f018;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  background-color: #f0f0f018;
 }
 
 .back-to-top svg {
@@ -257,7 +243,7 @@ onUnmounted(() => {
     bottom: 20px;
     right: 20px;
   }
-  
+
   .back-to-top svg {
     width: 20px;
     height: 20px;
