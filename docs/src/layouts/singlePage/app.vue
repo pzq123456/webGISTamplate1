@@ -28,12 +28,12 @@
       <FooterComponent />
 
       <!-- 返回顶部按钮 -->
-      <!-- <button class="back-to-top" :class="{ 'show': showBackToTop }" @click="scrollToTop" aria-label="返回顶部">
+      <button class="back-to-top" :class="{ 'show': showBackToTop }" @click="scrollToTop" aria-label="返回顶部">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
           stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <path d="M18 15l-6-6-6 6" />
         </svg>
-      </button> -->
+      </button> 
     </div>
   </div>
 </template>
@@ -58,7 +58,6 @@ import part2 from './part2.vue';
 import part3 from './part3.vue';
 import part4 from './part4.vue';
 
-
 // 工具函数和数据
 import { initScrollama } from './scrollUtils.js';
 import { onMapLoaded as onMapLoadedUtil } from './mapUtils.js';
@@ -66,8 +65,6 @@ import { createHexagonLayer } from './layers.js';
 import { steps } from './steps.js';
 
 import url from '../../../data/points2024.json';
-
-// console.log('Data URL:', url);
 
 // 地图状态
 const mapRef = ref(null);
@@ -83,19 +80,19 @@ const scrollStepsRef = ref(null);
 const scrollSection = ref(null);
 let scroller;
 
-// // 返回顶部功能
-// const showBackToTop = ref(false);
+// 返回顶部功能
+const showBackToTop = ref(false);
 
-// const checkScroll = () => {
-//   showBackToTop.value = scrollSection.value.scrollTop > 300;
-// };
+const checkScroll = () => {
+  showBackToTop.value = scrollSection.value.scrollTop > 300;
+};
 
-// const scrollToTop = () => {
-//   scrollSection.value.scrollTo({
-//     top: 0,
-//     behavior: 'smooth'
-//   });
-// };
+const scrollToTop = () => {
+  scrollSection.value.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+};
 
 function setDeckOverlay(instance) {
   deckOverlay = instance;
@@ -122,8 +119,6 @@ function handleStepEnter({ element }) {
     const step = steps.find(s => s.id === stepId);
     if (step?.mapConfig && mapRef.value) {
       // throttle the flyTo call to avoid performance issues
-
-
       throttle(() => {
         mapRef.value.flyTo({
           center: step.mapConfig.center,
@@ -144,14 +139,17 @@ function handleStepEnter({ element }) {
   }
 }
 
-// 生命周期钩子
+// 修改生命周期钩子，确保只在客户端执行
 onMounted(() => {
-  // 初始化滚动监听
-  scrollSection.value.addEventListener('scroll', checkScroll);
-
-  // 初始化Scrollama
-  if (scrollStepsRef.value?.stepElements) {
-    scroller = initScrollama(scrollStepsRef.value.stepElements, handleStepEnter);
+  if (typeof window !== 'undefined') { // 确保只在客户端执行
+    scrollSection.value.addEventListener('scroll', checkScroll);
+    
+    // 添加延迟确保DOM完全加载
+    setTimeout(() => {
+      if (scrollStepsRef.value?.stepElements) {
+        scroller = initScrollama(scrollStepsRef.value.stepElements, handleStepEnter);
+      }
+    }, 100);
   }
 });
 
@@ -178,11 +176,30 @@ onUnmounted(() => {
   height: 100vh;
 }
 
+/* 修改滚动容器样式 */
 .scroll-section {
   flex: 1;
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch; /* 添加iOS平滑滚动 */
   position: relative;
-  scroll-behavior: smooth;
+  height: 100vh; /* 确保高度固定 */
+  width: 100vw;  /* 确保宽度固定 */
+  overscroll-behavior: contain; /* 防止滚动链 */
+}
+
+/* 添加移动端视口修正 */
+@media (max-width: 768px) {
+  html, body {
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .app-container {
+    height: 100%;
+    overflow: hidden;
+  }
 }
 
 .scroll-container {
