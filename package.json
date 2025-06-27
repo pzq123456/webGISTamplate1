@@ -24,6 +24,7 @@
   "dependencies": {
     "@deck.gl/aggregation-layers": "^9.1.12",
     "csv-parse": "^5.6.0",
+    "lodash": "^4.17.21",
     "scrollama": "^3.2.0"
   }
 }
