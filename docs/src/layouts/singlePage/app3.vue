@@ -26,7 +26,7 @@ import { steps } from './steps.js';
 
 import { useDeckOverlay } from '@/composables/useDeckOverlay';
 
-// import url from '../../../data/points2024.json';
+import url from '../../../data/points2024.json?url'; // 引入数据文件
 
 // 地图状态
 const mapRef = ref(null);
@@ -39,7 +39,7 @@ const scrollSection = ref(null);
 function handleMapLoaded (map) {
   deckOverlay = useDeckOverlay(map);
   deckOverlay.setProps({
-      // layers: createHexagonLayer(url)
+      layers: createHexagonLayer(url)
     });
 }
 

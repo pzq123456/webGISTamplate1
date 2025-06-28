@@ -1,7 +1,8 @@
 <template>
 
-    <MapComponent ref="mapRef" :center="[0, 50]" :zoom="2" :pitch="0" @map-loaded="handleMapLoaded" :height="'50vh'" :width="'50vw'" />
-    <button @click="flyToUSA">Fly to USA</button>
+  <MapComponent ref="mapRef" :center="[0, 50]" :zoom="2" :pitch="0" @map-loaded="handleMapLoaded" :height="'50vh'"
+    :width="'50vw'" />
+  <button @click="flyToUSA">Fly to USA</button>
 </template>
 
 <script setup>
@@ -26,7 +27,7 @@ const throttledFlyTo = throttle((mapRef, config) => {
   mapRef.value?.flyTo(config);
 }, 1000);
 
-function flyToUSA () {
+function flyToUSA() {
   throttledFlyTo(mapRef, {
     center: [-98.5795, 39.8283], // 美国中心点
     zoom: 4,
@@ -35,12 +36,12 @@ function flyToUSA () {
   });
 }
 
-function handleMapLoaded (map) {
+function handleMapLoaded(map) {
   deckOverlay = useDeckOverlay(map);
 
   deckOverlay.setProps({
-      // layers: createHexagonLayer(url)
-    });
+    // layers: createHexagonLayer(url)
+  });
 }
 
 </script>
