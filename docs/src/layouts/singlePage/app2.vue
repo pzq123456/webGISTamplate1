@@ -7,6 +7,8 @@
 
       <part1 />
 
+      <App3 />
+
       <part2 />
 
       <part3 />
@@ -40,6 +42,8 @@ import part1 from './part1.vue';
 import part2 from './part2.vue';
 import part3 from './part3.vue';
 import part4 from './part4.vue';
+
+import App3 from './app3.vue';
 
 </script>
 
