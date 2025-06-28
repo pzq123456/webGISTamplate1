@@ -1,3 +1,4 @@
+// mapUtils.js
 import { useDeckOverlay } from '@/composables/useDeckOverlay';
 
 export function onMapLoaded(map, setDeckOverlay, setDeckOverlayCleanup) {

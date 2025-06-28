@@ -1,11 +1,9 @@
 <template>
   <div class="app-container">
-    <!-- Scrollama Section -->
     <div class="scroll-section" ref="scrollSection">
       <div class="scroll-container">
         <div class="sticky-graphic">
-          <MapComponent ref="mapRef" :center="viewState.center" :zoom="viewState.zoom" :pitch="viewState.pitch"
-            @map-loaded="onMapLoaded" />
+          <MapComponent ref="mapRef" :center="[0, 50]" :zoom="2" :pitch="0" @map-loaded="onMapLoaded" />
         </div>
         <ScrollSteps :steps="steps" ref="scrollStepsRef" />
       </div>
@@ -31,17 +29,11 @@ import url from '../../../data/points2024.json';
 
 // 地图状态
 const mapRef = ref(null);
-const viewState = {
-  center: [0, 50],
-  zoom: 2,
-  pitch: 0
-};
 
 let deckOverlay = null;
 let deckOverlayCleanup = null;
 const scrollStepsRef = ref(null);
 const scrollSection = ref(null);
-let scroller;
 
 function setDeckOverlay(instance) {
   deckOverlay = instance;
@@ -62,20 +54,17 @@ function onMapLoaded(map) {
   }
 }
 
+// 在 setup 外部定义
+const throttledFlyTo = throttle((mapRef, config) => {
+  mapRef.value?.flyTo(config);
+}, 1000);
+
 function handleStepEnter({ element }) {
   if (element) {
     const stepId = element.dataset.step;
     const step = steps.find(s => s.id === stepId);
     if (step?.mapConfig && mapRef.value) {
-      // throttle the flyTo call to avoid performance issues
-      throttle(() => {
-        mapRef.value.flyTo({
-          center: step.mapConfig.center,
-          zoom: step.mapConfig.zoom,
-          pitch: step.mapConfig.pitch || 0,
-          duration: 3000
-        });
-      }, 1000)();
+      throttledFlyTo(mapRef, { ...step.mapConfig, duration: 2000 });
     }
   }
 }
@@ -84,7 +73,7 @@ function handleStepEnter({ element }) {
 onMounted(() => {
   if (typeof window !== 'undefined') { // 确保只在客户端执行
     if (scrollStepsRef.value?.stepElements) {
-      scroller = initScrollama(scrollStepsRef.value.stepElements, handleStepEnter);
+      initScrollama(scrollStepsRef.value.stepElements, handleStepEnter);
     }
   }
 });
@@ -95,7 +84,6 @@ onUnmounted(() => {
 
   // 销毁Scrollama实例
   try {
-    scroller?.destroy();
     if (deckOverlayCleanup) {
       deckOverlayCleanup();
     }
@@ -116,8 +104,6 @@ onUnmounted(() => {
   flex: 1;
   overflow-y: auto;
   position: relative;
-  height: 100vh; /* 确保高度固定 */
-  width: 100vw;  /* 确保宽度固定 */
 }
 
 .scroll-container {
@@ -132,5 +118,4 @@ onUnmounted(() => {
   height: 100vh;
   display: flex;
 }
-
 </style>
