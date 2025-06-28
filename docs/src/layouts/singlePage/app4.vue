@@ -11,7 +11,7 @@ const { throttle } = pkg;
 
 import MapComponent from '@/components/MapComponent.vue';
 
-// import { createHexagonLayer } from './layers.js';
+import { createHexagonLayer } from './layers.js';
 
 import url from '../../../data/points2024.json';
 import { useDeckOverlay } from '@/composables/useDeckOverlay';
@@ -38,10 +38,9 @@ function flyToUSA () {
 function handleMapLoaded (map) {
   deckOverlay = useDeckOverlay(map);
 
-  // deckOverlay.setProps({
-  //     // layers: createHexagonLayer(url)
-  //   });
-  updateDeckLayers()
+  deckOverlay.setProps({
+      layers: createHexagonLayer(url)
+    });
 }
 
 </script>
