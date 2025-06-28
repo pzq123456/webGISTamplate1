@@ -46,9 +46,9 @@ function setDeckOverlayCleanup(cleanup) {
 function onMapLoaded(map) {
   onMapLoadedUtil(map, setDeckOverlay, setDeckOverlayCleanup);
   if (deckOverlay) {
-    deckOverlay.setProps({
-      layers: createHexagonLayer(url)
-    });
+    // deckOverlay.setProps({
+    //   layers: createHexagonLayer(url)
+    // });
   } else {
     console.warn('Deck overlay is not initialized');
   }
