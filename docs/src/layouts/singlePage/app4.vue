@@ -13,7 +13,7 @@ import MapComponent from '@/components/MapComponent.vue';
 
 import { createHexagonLayer } from './layers.js';
 
-import url from '../../../data/points2024.json';
+// import url from '../../../data/points2024.json';
 import { useDeckOverlay } from '@/composables/useDeckOverlay';
 
 // 地图状态
@@ -39,7 +39,7 @@ function handleMapLoaded (map) {
   deckOverlay = useDeckOverlay(map);
 
   deckOverlay.setProps({
-      layers: createHexagonLayer(url)
+      // layers: createHexagonLayer(url)
     });
 }
 
