@@ -3,7 +3,7 @@
     <div class="scroll-section" ref="scrollSection">
       <div class="scroll-container">
         <div class="sticky-graphic">
-          <MapComponent ref="mapRef" :center="[0, 50]" :zoom="2" :pitch="0" @map-loaded="onMapLoaded" />
+          <MapComponent ref="mapRef" :center="[0, 50]" :zoom="2" :pitch="0" @map-loaded="handleMapLoaded" />
         </div>
         <ScrollSteps :steps="steps" ref="scrollStepsRef" />
       </div>
@@ -21,9 +21,10 @@ import ScrollSteps from './ScrollSteps.vue';
 
 // 工具函数和数据
 import { initScrollama } from './scrollUtils.js';
-import { onMapLoaded as onMapLoadedUtil } from './mapUtils.js';
 import { createHexagonLayer } from './layers.js';
 import { steps } from './steps.js';
+
+import { useDeckOverlay } from '@/composables/useDeckOverlay';
 
 // import url from '../../../data/points2024.json';
 
@@ -35,23 +36,11 @@ let deckOverlayCleanup = null;
 const scrollStepsRef = ref(null);
 const scrollSection = ref(null);
 
-function setDeckOverlay(instance) {
-  deckOverlay = instance;
-}
-
-function setDeckOverlayCleanup(cleanup) {
-  deckOverlayCleanup = cleanup;
-}
-
-function onMapLoaded(map) {
-  onMapLoadedUtil(map, setDeckOverlay, setDeckOverlayCleanup);
-  if (deckOverlay) {
-    // deckOverlay.setProps({
-    //   layers: createHexagonLayer(url)
-    // });
-  } else {
-    console.warn('Deck overlay is not initialized');
-  }
+function handleMapLoaded (map) {
+  deckOverlay = useDeckOverlay(map);
+  deckOverlay.setProps({
+      // layers: createHexagonLayer(url)
+    });
 }
 
 // 在 setup 外部定义
@@ -75,20 +64,6 @@ onMounted(() => {
     if (scrollStepsRef.value?.stepElements) {
       initScrollama(scrollStepsRef.value.stepElements, handleStepEnter);
     }
-  }
-});
-
-onUnmounted(() => {
-  // 清理事件监听
-  scrollSection.value?.removeEventListener('scroll', checkScroll);
-
-  // 销毁Scrollama实例
-  try {
-    if (deckOverlayCleanup) {
-      deckOverlayCleanup();
-    }
-  } catch (error) {
-    console.error('Cleanup error:', error);
   }
 });
 </script>
