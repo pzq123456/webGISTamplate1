@@ -42,9 +42,21 @@ const props = defineProps({
     type: String,
     default: null
   },
+  flyToOptions: {
+    type: Object,
+    default: null
+  },
+  fitBounds: {
+    type: Array,
+    default: null
+  },
+  preserveDrawingBuffer: {
+    type: Boolean,
+    default: false
+  }
 });
 
-const emit = defineEmits(['map-loaded']);
+const emit = defineEmits(['map-loaded', 'map-move', 'map-click', 'map-rendered']);
 
 const map = ref(null);
 const isMapLoaded = ref(false);
@@ -78,8 +90,75 @@ const initMap = () => {
     isMapLoaded.value = true;
     emit('map-loaded', map.value);
   });
+
+  map.value.on('render', () => {
+    emit('map-rendered');
+  });
+
+  map.value.on('move', () => {
+    if (!map.value.isMoving()) {
+      emit('map-move', {
+        center: map.value.getCenter(),
+        zoom: map.value.getZoom(),
+        bearing: map.value.getBearing(),
+        pitch: map.value.getPitch()
+      });
+    }
+  });
+
+  map.value.on('click', (e) => {
+    emit('map-click', {
+      lngLat: e.lngLat,
+      point: e.point
+    });
+  });
 };
 
+// 响应式更新地图位置
+watch(() => props.center, (newCenter) => {
+  if (isMapLoaded.value && newCenter) {
+    map.value.flyTo({ center: newCenter });
+  }
+}, { deep: true });
+
+watch(() => props.zoom, (newZoom) => {
+  if (isMapLoaded.value && newZoom !== undefined) {
+    map.value.flyTo({ zoom: newZoom });
+  }
+});
+
+watch(() => props.bearing, (newBearing) => {
+  if (isMapLoaded.value && newBearing !== undefined) {
+    map.value.flyTo({ bearing: newBearing });
+  }
+});
+
+watch(() => props.pitch, (newPitch) => {
+  if (isMapLoaded.value && newPitch !== undefined) {
+    map.value.flyTo({ pitch: newPitch });
+  }
+});
+
+watch(() => props.flyToOptions, (options) => {
+  if (isMapLoaded.value && options) {
+    map.value.flyTo(options);
+  }
+}, { deep: true });
+
+watch(() => props.fitBounds, (bounds) => {
+  if (isMapLoaded.value && bounds) {
+    map.value.fitBounds(bounds, {
+      padding: 20,
+      duration: 1000
+    });
+  }
+}, { deep: true });
+
+watch(mapStyle, (newStyle) => {
+  if (isMapLoaded.value) {
+    map.value.setStyle(newStyle);
+  }
+});
 
 onMounted(
   () => {

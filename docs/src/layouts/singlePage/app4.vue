@@ -1,14 +1,7 @@
 <template>
 
-      <button @click="toUSA">
-      Fly to USA
-    </button>
-    
-  <div class="app-container">
-    <MapComponent ref="mapRef" :center="[0, 50]" :zoom="2" :pitch="0" @map-loaded="onMapLoaded" />
-  </div>
-
-
+    <MapComponent ref="mapRef" :center="[0, 50]" :zoom="2" :pitch="0" @map-loaded="handleMapLoaded" :height="'50vh'" :width="'50vw'" />
+    <button @click="flyToUSA">Fly to USA</button>
 </template>
 
 <script setup>
@@ -22,66 +15,36 @@ import MapComponent from '@/components/MapComponent.vue';
 import { initScrollama } from './scrollUtils.js';
 import { onMapLoaded as onMapLoadedUtil } from './mapUtils.js';
 import { createHexagonLayer } from './layers.js';
-import { steps } from './steps.js';
 
 import url from '../../../data/points2024.json';
+import { useDeckOverlay } from '@/composables/useDeckOverlay';
 
 // 地图状态
 const mapRef = ref(null);
 
 let deckOverlay = null;
-let deckOverlayCleanup = null;
-const scrollStepsRef = ref(null);
-const scrollSection = ref(null);
 
-// buttton to us
+// fly to USA
 const throttledFlyTo = throttle((mapRef, config) => {
   mapRef.value?.flyTo(config);
 }, 1000);
 
-function toUSA() {
+function flyToUSA () {
   throttledFlyTo(mapRef, {
-    center: [-98.5795, 39.8283], // USA center
+    center: [-98.5795, 39.8283], // 美国中心点
     zoom: 4,
     pitch: 0,
     duration: 2000
   });
 }
 
-function setDeckOverlay(instance) {
-  deckOverlay = instance;
-}
+function handleMapLoaded (map) {
+  deckOverlay = useDeckOverlay(map);
 
-function setDeckOverlayCleanup(cleanup) {
-  deckOverlayCleanup = cleanup;
-}
-
-function onMapLoaded(map) {
-  onMapLoadedUtil(map, setDeckOverlay, setDeckOverlayCleanup);
-  if (deckOverlay) {
-    deckOverlay.setProps({
+  deckOverlay.setProps({
       layers: createHexagonLayer(url)
     });
-  } else {
-    console.warn('Deck overlay is not initialized');
-  }
+  updateDeckLayers()
 }
 
-onUnmounted(() => {
-  try {
-    if (deckOverlayCleanup) {
-      deckOverlayCleanup();
-    }
-  } catch (error) {
-    console.error('Cleanup error:', error);
-  }
-});
 </script>
-
-<style scoped>
-.app-container {
-  display: flex;
-  flex-direction: row;
-  width: 50%;
-}
-</style>

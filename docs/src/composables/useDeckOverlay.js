@@ -1,39 +1,16 @@
-import { MapboxOverlay } from '@deck.gl/mapbox';
+// 用于管理图层的 deck.gl 对象
+import {MapboxOverlay} from '@deck.gl/mapbox';
 
-export function useDeckOverlay(map, options = {}) {
-  const defaultOptions = {
-    interleaved: true,
-    layers: [],
-    ...options
-  };
+export function useDeckOverlay(map) {
+    const DeckOverlay = new MapboxOverlay({
+        interleaved: true, 
+        layers: [], // layers
+        interleaved: true, // 确保 DeckGL 层渲染在 Mapbox 上层
+    });
 
-  const deckOverlay = new MapboxOverlay(defaultOptions);
-
-  if (map) {
-    map.addControl(deckOverlay);
-  }
-
-  // 清理函数
-  const cleanup = () => {
-    if (map && deckOverlay) {
-      try {
-        map.removeControl(deckOverlay);
-      } catch (e) {
-        console.warn('Error removing deck overlay:', e);
-      }
-      deckOverlay.finalize();
+    if(map) {
+        map.addControl(DeckOverlay);
     }
-  };
 
-  // 暴露方法
-  return {
-    instance: deckOverlay,
-    setLayers: (layers) => {
-      deckOverlay.setProps({ layers });
-    },
-    setOptions: (newOptions) => {
-      deckOverlay.setProps(newOptions);
-    },
-    cleanup
-  };
+    return DeckOverlay;
 }
