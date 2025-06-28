@@ -25,7 +25,7 @@ import { onMapLoaded as onMapLoadedUtil } from './mapUtils.js';
 import { createHexagonLayer } from './layers.js';
 import { steps } from './steps.js';
 
-import url from '../../../data/points2024.json';
+// import url from '../../../data/points2024.json';
 
 // 地图状态
 const mapRef = ref(null);
