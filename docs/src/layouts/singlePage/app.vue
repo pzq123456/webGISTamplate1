@@ -7,18 +7,17 @@
   <part3 />
   <part4 />
 
-  <Acknowledgement />
+  <!-- <Acknowledgement /> -->
 
-  <FooterComponent />
+  <!-- <FooterComponent /> -->
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted } from 'vue';
 
 // 组件引入
 import HeaderComponent from './paragraph/header.vue';
-import FooterComponent from './paragraph/footer.vue';
-import Acknowledgement from './paragraph/acknowledgement.vue';
+// import FooterComponent from './paragraph/footer.vue';
+// import Acknowledgement from './paragraph/acknowledgement.vue';
 
 import part1 from './paragraph/part1.vue';
 import part2 from './paragraph/part2.vue';

@@ -3,6 +3,10 @@
         <h2 class="section-subtitle">Access to Public EV Charging Stations (EVCSs) in Residential Areas</h2>
 
         <div class="paper-text">
+            <p v-html="introText0"></p>
+        </div>
+
+        <div class="paper-text">
             <p v-html="introText"></p>
         </div>
 
@@ -35,6 +39,11 @@ import Figure from './figure.vue'
 
 import imageSrc2 from './assets/img2.png'
 import imageSrc3 from './assets/img3.png'
+
+// This work explored access to EVCSs in residential areas (characterized by population coverage and the association with housing prices), in commercial and administrative areas (characterized by the coverage of different types of POIs), and through road network (characterized by road network accessibility)
+const introText0 = ref(`
+    This work explored access to EVCSs in residential areas (characterized by population coverage and the association with housing prices), in commercial and administrative areas (characterized by the coverage of different types of POIs), and through road network (characterized by road network accessibility)
+    `)
 
 const introText = ref(`
     Figure 2 illustrates the population coverage levels of EV charging stations (EVCSs) across cities and city clusters in Europe, China, and the US. In Europe, EVCS coverage follows a normal distribution, suggesting deployment in areas with moderate population density. In contrast, China and the US exhibit right-skewed distributions, with most cities having low coverage levels (below 0.2 and 0.4, respectively), indicating a concentration in sparsely populated areas and potential charging inequity in high-density regions. Similar trends are observed in city clusters, though with minor variations. Europe's more balanced distribution may facilitate better charging accessibility compared to China and the US.`)

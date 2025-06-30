@@ -15,7 +15,8 @@
       </div>
       <hr class="decorative-line">
       <div class="intro-text">
-        <p>In a world where electric vehicles (EVs) are swiftly gaining momentum, understanding the global landscape of EV charging infrastructure is of utmost importance. This study investigates the spatial distribution of public EV charging stations (EVCSs) worldwide, with a focus on China, the United States (US), and Europe, which account for approximately 90% of the global public EV chargers. Our findings indicate that EVCSs in Europe primarily serve those residential areas with a higher population density, while EVCSs in both China and the US tend to be deployed in those areas with moderate housing prices; furthermore, China primarily deployed EVCSs in those commercial and administrative areas with less diverse amenities nearby; in terms of accessibility, EVCSs in China and Europe tend to be deployed in those areas with a relatively inferior road network accessibility. Understanding these disparities is crucial for policymakers and planners to address the challenges and promote equitable access to EV chargers across different regions, in order for a sustainable and inclusive transition to electric mobility.</p>
+        <p>This study analyzed the most recent electric vehicle charging station (EVCS) location data from 2024 through a global comparative analysis at the city level, with a particular focus on uncovering accessibility and equity issues embedded in past deployment strategies. The findings and their policy implications aim to promote mutual learning among cities and regions, supporting a more collaborative and knowledge-driven approach to sustainable and equitable urban electrification.
+</p>
       </div>
     </div>
     <p class="hint">↓ Scroll down to continue ↓</p>

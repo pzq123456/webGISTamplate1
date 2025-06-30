@@ -79,6 +79,9 @@ onMounted(() => {
   flex: 1;
   overflow-y: auto;
   position: relative;
+  /* 更细更隐蔽的滚动条样式 */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 246, 0, 0.1) transparent;
 }
 
 .scroll-container {
