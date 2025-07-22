@@ -5,7 +5,9 @@ const props = defineProps({
     src: { type: String, required: true },
     alt: { type: String, default: '' },
     caption: { type: String, default: '' },
-    width: { type: [String, Number], default: '80%' },
+    width: { type: [String, Number], default: '60%' }, // 图片宽度
+    containerWidth: { type: [String, Number], default: 'auto' }, // 容器宽度
+    containerPadding: { type: [String, Number], default: '8px' }, // 容器内边距
     fit: { type: String, default: 'contain' },
     borderRadius: { type: String, default: '8px' },
     background: { type: String, default: 'white' },
@@ -15,11 +17,17 @@ const figureStyle = computed(() => ({
     position: 'relative',
     background: props.background,
     borderRadius: props.borderRadius,
-    padding: '16px',
+    padding: typeof props.containerPadding === 'number' 
+        ? `${props.containerPadding}px` 
+        : props.containerPadding,
     margin: '24px 0',
     textAlign: 'center',
     transition: 'all 0.3s ease',
-    overflow: 'hidden', // 确保遮罩不会溢出
+    overflow: 'hidden',
+    width: typeof props.containerWidth === 'number' 
+        ? `${props.containerWidth}px` 
+        : props.containerWidth,
+    maxWidth: '100%', // 防止在小屏幕上溢出
 }))
 
 const imageStyle = computed(() => ({
@@ -30,10 +38,9 @@ const imageStyle = computed(() => ({
 }))
 
 const captionStyle = computed(() => ({
-    color: 'var(--vp-c-text-3, #a0aec0)',
+    color: `black`,
     fontSize: '0.95em',
     marginTop: '12px',
-    opacity: '0.9',
     lineHeight: '1.5',
 }))
 </script>

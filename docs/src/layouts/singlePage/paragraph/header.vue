@@ -15,8 +15,7 @@
       </div>
       <hr class="decorative-line">
       <div class="intro-text">
-        <p>This study analyzed the most recent electric vehicle charging station (EVCS) location data from 2024 through a global comparative analysis at the city level, with a particular focus on uncovering accessibility and equity issues embedded in past deployment strategies. The findings and their policy implications aim to promote mutual learning among cities and regions, supporting a more collaborative and knowledge-driven approach to sustainable and equitable urban electrification.
-</p>
+        <p>This study analyzed 2024 public electric vehicle charging station (EVCS) location data through a global comparative analysis at the city level, focusing on uncovering accessibility and equity issues embedded in past deployment strategies. The findings encourage mutual learning and support a more collaborative, knowledge-driven path toward sustainable and equitable urban electrification.</p>
       </div>
     </div>
     <p class="hint">↓ Scroll down to continue ↓</p>

@@ -9,14 +9,14 @@
 
   <!-- <Acknowledgement /> -->
 
-  <!-- <FooterComponent /> -->
+  <FooterComponent />
 </template>
 
 <script setup>
 
 // 组件引入
 import HeaderComponent from './paragraph/header.vue';
-// import FooterComponent from './paragraph/footer.vue';
+import FooterComponent from './paragraph/footer.vue';
 // import Acknowledgement from './paragraph/acknowledgement.vue';
 
 import part1 from './paragraph/part1.vue';

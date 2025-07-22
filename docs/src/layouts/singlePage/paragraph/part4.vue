@@ -1,6 +1,6 @@
 <template>
     <section class="paper-section">
-        <h2 class="section-subtitle">Access to Public EV Charging Stations (EVCSs) through Road Network</h2>
+        <h2 class="section-subtitle">Access EVCSs through Road Network</h2>
 
         <div class="paper-text">
             <p v-html="introText"></p>
@@ -28,8 +28,7 @@ const introText = ref(`
 const imageAlt = "Fig. 5"
 const caption = 
 `
-Fig. 5 | Access to EVCSs through Road Network. a, Comparing road network density and the relative development level of road network in the proximity of EVCSs at the city level across three study areas and different buffer radii. Here, the relative development level of road network around EVCSs in a city is characterized by the average ratio of road density around EVCSs to the road density of the city (see Equations (7) - (10) in Methods). b, Comparing road network density and the relative development level of road network around EVCSs at the city level in the representative city clusters across different study areas and buffer distances.
-`
+Fig. 4 | City-level comparison of road network density and the relative development level of the road network around EVCSs across three study areas. Higher index values suggest a tendency for EVCS deployment in areas with denser road networks. Note that compared to the index of road network density, the index of the relative development level further controls the influence of a city's overall road network maturity in cross-city comparisons.`
 
 </script>
 

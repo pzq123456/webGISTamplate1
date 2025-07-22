@@ -1,6 +1,6 @@
 <template>
     <section class="paper-section">
-        <h2 class="section-subtitle">Access to Public EV Charging Stations (EVCSs) in Commercial and Administrative Areas</h2>
+        <h2 class="section-subtitle">Access to EVCSs in Commercial and Administrative Areas</h2>
 
         <div class="paper-text">
             <p v-html="introText"></p>
@@ -29,8 +29,7 @@ const introText = ref(`
 const imageAlt = "Fig. 4"
 const caption = 
 `
-Fig. 4 | Access to EVCSs in Commercial and Administrative Areas. a, Comparing the diversity of amenities (using POI Mix) in the proximity of EVCSs at the city level across three study areas and different buffer radii. We calculated the POI Mix for each city (see Equations (5) and (6) in Methods), and further calculated the percentage of cities falling within various ranges of POI Mix. b, Comparing the diversity of amenities around EVCSs at the city level in representative city clusters across different study areas and buffer distances. 
-`
+Fig. 3 | City-level comparison of the POI mix around EVCSs across the three study areas. A larger index value suggests a tendency for EVCS deployment in areas with a greater diversity of amenities.`
 
 </script>
 

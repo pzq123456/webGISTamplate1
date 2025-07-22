@@ -1,21 +1,19 @@
 <template>
     <section class="paper-section">
-        <h2 class="section-subtitle">Access to Public EV Charging Stations (EVCSs) in Residential Areas</h2>
 
         <div class="paper-text">
             <p v-html="introText0"></p>
         </div>
+        <h2 class="section-subtitle">Access to EVCSs in Residential Areas</h2>
+
+
 
         <div class="paper-text">
             <p v-html="introText"></p>
         </div>
 
         <div class="figure-container">
-            <Figure 
-                :src="imageSrc2" 
-                :alt="imageAlt" 
-                :caption="caption"
-            />
+            <Figure :src="imageSrc2" :alt="imageAlt" :caption="caption" />
         </div>
 
         <div class="paper-text">
@@ -23,11 +21,7 @@
         </div>
 
         <div class="figure-container">
-            <Figure 
-                :src="imageSrc3" 
-                :alt="imageAlt2" 
-                :caption="caption2"
-            />
+            <Figure :src="imageSrc3" :alt="imageAlt2" :caption="caption2" />
         </div>
 
     </section>
@@ -42,16 +36,16 @@ import imageSrc3 from './assets/img3.png'
 
 // This work explored access to EVCSs in residential areas (characterized by population coverage and the association with housing prices), in commercial and administrative areas (characterized by the coverage of different types of POIs), and through road network (characterized by road network accessibility)
 const introText0 = ref(`
-    This work explored access to EVCSs in residential areas (characterized by population coverage and the association with housing prices), in commercial and administrative areas (characterized by the coverage of different types of POIs), and through road network (characterized by road network accessibility)
+    This work explored access to EVCSs in residential areas (characterized by population coverage and the association with housing prices), in commercial and administrative areas (characterized by the coverage of different types of POIs), and through road network (characterized by road network accessibility).
     `)
 
 const introText = ref(`
     Figure 2 illustrates the population coverage levels of EV charging stations (EVCSs) across cities and city clusters in Europe, China, and the US. In Europe, EVCS coverage follows a normal distribution, suggesting deployment in areas with moderate population density. In contrast, China and the US exhibit right-skewed distributions, with most cities having low coverage levels (below 0.2 and 0.4, respectively), indicating a concentration in sparsely populated areas and potential charging inequity in high-density regions. Similar trends are observed in city clusters, though with minor variations. Europe's more balanced distribution may facilitate better charging accessibility compared to China and the US.`)
 
 const imageAlt = "Fig. 2"
-const caption = 
-`
-Fig. 2 | Population Coverage Levels of EVCSs in Residential Areas. a, Comparing population coverage levels of EVCSs at the city level for the three study areas. We calculated the population coverage level of EVCSs for each city (see Equations (1) and (2) in Methods), and then calculated the percentage of cities that are in different population coverage levels. b, Comparing population coverage levels of EVCSs at the city level for representative city clusters within the three study areas. Note that in this paper, the spatial analysis unit “city” is defined based on Level-2 administrative divisions provided by GADM, a popular database of global administrative areas at different levels. Generally, Level-2 administrative divisions correspond to prefecture-level cities in China, counties in the US, and vary by country in Europe (e.g., municipalities in the Netherlands).
+const caption =
+    `
+Fig. 1 | City-level comparison of the population coverage level of EVCSs across the three study areas. A larger index value suggests a tendency for EVCS deployment in areas with higher population density.
 `
 
 // 第二段
@@ -59,15 +53,13 @@ const introText2 = ref(`
     Our analysis of equitable EV charging station (EVCS) access examines housing prices at 300m, 800m, and 1000m distances in China and the US, where charging access challenges exist. On average, EVCSs in both countries are located near moderately priced housing, with housing price indices close to 1.0. However, the US shows greater variability, with indices ranging from 0.6 to 1.8—wider than China’s 0.8 to 1.2—suggesting more diverse EVCS placement. City clusters also differ: in China, the Pearl River Delta has more concentrated housing prices than Beijing-Tianjin-Hebei, while in the US, the Northeast Corridor is more varied than the Bay Area. These patterns indicate that while EVCSs generally serve middle-income areas, lower and higher-income residents may face charging inequity, possibly due to planners prioritizing moderate-demand zones over underserved or privately served neighborhoods.
 `)
 const imageAlt2 = "Fig. 3"
-const caption2 = 
-`
-Fig. 3 | Housing Price Index of EVCSs in Residential Areas. a, Comparing the housing price index of EVCSs at the city level across two study areas (i.e., China and the US) and different buffer radii. We calculated the housing price index of EVCSs for each city (see Equations (3) and (4) in Methods) and used the index value of each city to draw the box plot. b, Comparing the housing price index of EVCSs at the city level in representative city clusters across different study areas and buffer radii.
-`
+const caption2 =
+    `
+Fig. 2 | City-level comparison of the housing price index of EVCSs across two study areas (i.e., China and the US). A larger index value suggests a tendency for EVCS deployment in areas with higher housing prices.`
 
 </script>
 
 <style scoped>
-
 .section-subtitle {
     font-size: 1.8rem;
     font-weight: 600;

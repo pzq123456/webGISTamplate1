@@ -1,9 +1,9 @@
 <template>
   <footer class="footer">
-    <div class="footer-names">
+    <!-- <div class="footer-names">
       Xiong Yang, Zhenhan Peng, Chengxiang Zhuge*,
       Justin Hayse, Chiwing G. Tang, Ruichen Ma, Binru Wei, and Wenzhong Shi*
-    </div>
+    </div> -->
     <div class="footer-content">
       <span>
         <a href="https://thetipteam.editorx.io/website/" target="_blank" rel="noopener">The TIP Research Group</a>
