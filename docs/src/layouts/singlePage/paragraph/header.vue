@@ -7,13 +7,16 @@
         <span class="subtitle" ref="subtitle">Insights from a spatial planning perspective.</span>
       </h1>
       <div class="links-container">
-        <a href="https://globalevdata.github.io/" class="link">Project Website</a>
+        <a href="https://globalevdata.github.io/" class="link">Global EV Data Initiative</a>
         <span class="divider">•</span>
-        <a href="#" class="link">Published Paper</a>
-        <span class="divider">•</span>
-        <a href="https://github.com/XanderPENG/global-evcs" class="link">GitHub Repository</a>
+        <a href="https://github.com/XanderPENG/global-evcs" class="link">Code</a>
       </div>
       <hr class="decorative-line">
+
+      <!-- 水印文字 -->
+      <p class="watermark">This work is part of the <a href="https://globalevdata.github.io/">Global EV Data Initiative</a>.</p>
+      <!-- This piece of work is based on the Global EV Data Initaitive -->
+
       <div class="intro-text">
         <p>This study analyzed 2024 public electric vehicle charging station (EVCS) location data through a global comparative analysis at the city level, focusing on uncovering accessibility and equity issues embedded in past deployment strategies. The findings encourage mutual learning and support a more collaborative, knowledge-driven path toward sustainable and equitable urban electrification.</p>
       </div>
@@ -46,6 +49,15 @@ onMounted(() => {
 </script>
 
 <style scoped>
+
+.watermark{
+  font-size: 1.3rem;
+  color: var(--vp-c-text-3);
+  max-width: 80%;
+  text-align: left;
+  font-weight: 500;
+}
+
 .intro-section {
   padding: 8rem 1.5rem 4rem 1.5rem;
   text-align: center;
