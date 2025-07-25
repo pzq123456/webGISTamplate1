@@ -151,6 +151,7 @@ onMounted(() => {
   line-height: 1.7;
   max-width: 80%;
   margin: 1rem 0;
+  text-align: left;
 }
 
 .intro-section .hint {

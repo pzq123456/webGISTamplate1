@@ -13,7 +13,6 @@ const props = defineProps({
     background: { type: String, default: 'white' },
 })
 
-// 仅保留需要动态计算的样式
 const figureStyle = computed(() => ({
     '--background': props.background,
     '--border-radius': props.borderRadius,
@@ -48,13 +47,14 @@ const figureStyle = computed(() => ({
     background: var(--background, white);
     border-radius: var(--border-radius, 8px);
     padding: var(--container-padding, 16px);
-    text-align: center;
     transition: all 0.3s ease;
     overflow: hidden;
     width: var(--container-width, 80%);
     max-width: 100%;
-    /* 自动居中 */
-    margin: 0 auto;
+    margin: 24px auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .image-content {
@@ -70,14 +70,13 @@ const figureStyle = computed(() => ({
 
 .image-caption {
     color: var(--vp-c-text-2);
-    font-size: 1.4em;
-    margin-top: 12px;
-    line-height: 1.5;
-    max-width: 70%;
-    margin: 0 auto;
-    text-align: center;
+    font-size: 0.9em;
+    margin-top: 8px;
+    line-height: 1.4;
+    width: var(--image-width, 60%);
+    max-width: 100%;
+    text-align: left;
     word-wrap: break-word;
-    white-space: normal;
 }
 
 .image-mask {

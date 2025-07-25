@@ -102,14 +102,14 @@ defineExpose({ stepElements });
 }
 
 .step h3 {
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin-bottom: 1.5rem;
   color: var(--vp-c-text-1);
   font-weight: 600;
 }
 
 .step p {
-  font-size: 1.2rem;
+  font-size: 2rem;
   line-height: 1.6;
   color: var(--vp-c-text-2);
   margin-bottom: 2rem;
@@ -136,13 +136,14 @@ defineExpose({ stepElements });
 }
 
 .stat-value {
-  font-size: 1.2rem;
+  font-size: 2rem;
   color: var(--vp-c-brand-1);
   margin-bottom: 0.5rem;
+  line-height: 1.2;
 }
 
 .stat-label {
-  font-size: 0.8rem;
+  font-size: 1rem;
   color: var(--vp-c-text-2);
   text-transform: uppercase;
   letter-spacing: 0.05em;

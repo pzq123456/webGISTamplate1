@@ -1,6 +1,6 @@
 <template>
     <section class="paper-section">
-        <h2 class="section-subtitle">Access EVCSs through Road Network</h2>
+        <h2 class="section-subtitle">Access to EVCSs through Road Network</h2>
 
         <div class="paper-text">
             <p v-html="introText"></p>
