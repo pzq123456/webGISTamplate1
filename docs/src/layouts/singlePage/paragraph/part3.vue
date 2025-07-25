@@ -24,7 +24,7 @@ import Figure from './figure.vue'
 import imageSrc4 from './assets/img4.png'
 
 const introText = ref(`
-    EV charging station (EVCS) access in commercial and administrative areas varies significantly across China, the US, and Europe. Analysis using POI Mix—measuring amenity diversity within 300m, 800m, and 1000m buffers—reveals that 70-90% of US and European cities show high POI Mix (above 0.7), indicating greater amenity variety near charging stations. In contrast, most Chinese cities have lower POI Mix (0.5-0.7), suggesting less diverse surroundings near EVCSs, likely due to limited public parking and high deployment costs in dense urban areas. City clusters generally follow regional trends, though some—like Beijing-Tianjin-Hebei and the Bay Area—outperform peers with higher POI Mix, implying better charging access in key commercial zones. (See Supplementary Materials, Appendix G, for spatial details.)
+    Compared with cities in Europe and the US, Chinese cities tend to deploy more EVCSs in areas with less diverse amenities.
 `)
 const imageAlt = "Fig. 4"
 const caption = 
@@ -56,7 +56,7 @@ Fig. 3 | City-level comparison of the POI mix around EVCSs across the three stud
 .paper-text p {
     max-width: 80%;
     margin-bottom: 1.2rem;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     line-height: 1.6;
     color: var(--vp-c-text-2);
     margin: 0 auto;

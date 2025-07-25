@@ -33,7 +33,7 @@ export const steps = [
     {
         id: '3',
         title: 'Europe: EVCS Distribution 2024',
-        content: 'This study focuses on 32 European countries, including 27 member countries of the European Union, the United Kingdom, Norway, Liechtenstein, Iceland, and Switzerland',
+        content: 'This study focuses on 32 European countries, including 27 member countries of the European Union, the United Kingdom, Norway, Liechtenstein, Iceland, and Switzerland.',
         mapConfig: { center: [10.0, 50.0], zoom: 4, pitch: 40},
         // url: url,
         stats: {

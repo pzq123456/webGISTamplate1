@@ -119,9 +119,9 @@ onMounted(() => {
 }
 
 .link {
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: var(--vp-c-text-2);
-  text-decoration: none;
+  text-decoration: underline;
   opacity: 0.7;
   transition: all 0.3s ease;
 }
@@ -146,7 +146,7 @@ onMounted(() => {
 }
 
 .intro-text {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   color: var(--vp-c-text-2);
   line-height: 1.7;
   max-width: 80%;

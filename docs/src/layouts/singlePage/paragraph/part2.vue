@@ -40,8 +40,7 @@ const introText0 = ref(`
     `)
 
 const introText = ref(`
-    Figure 2 illustrates the population coverage levels of EV charging stations (EVCSs) across cities and city clusters in Europe, China, and the US. In Europe, EVCS coverage follows a normal distribution, suggesting deployment in areas with moderate population density. In contrast, China and the US exhibit right-skewed distributions, with most cities having low coverage levels (below 0.2 and 0.4, respectively), indicating a concentration in sparsely populated areas and potential charging inequity in high-density regions. Similar trends are observed in city clusters, though with minor variations. Europe's more balanced distribution may facilitate better charging accessibility compared to China and the US.`)
-
+    Compared with European cities, cities in China and the US tend to deploy more EVCSs in areas with lower population density.`)
 const imageAlt = "Fig. 2"
 const caption =
     `
@@ -50,7 +49,7 @@ Fig. 1 | City-level comparison of the population coverage level of EVCSs across 
 
 // 第二段
 const introText2 = ref(`
-    Our analysis of equitable EV charging station (EVCS) access examines housing prices at 300m, 800m, and 1000m distances in China and the US, where charging access challenges exist. On average, EVCSs in both countries are located near moderately priced housing, with housing price indices close to 1.0. However, the US shows greater variability, with indices ranging from 0.6 to 1.8—wider than China’s 0.8 to 1.2—suggesting more diverse EVCS placement. City clusters also differ: in China, the Pearl River Delta has more concentrated housing prices than Beijing-Tianjin-Hebei, while in the US, the Northeast Corridor is more varied than the Bay Area. These patterns indicate that while EVCSs generally serve middle-income areas, lower and higher-income residents may face charging inequity, possibly due to planners prioritizing moderate-demand zones over underserved or privately served neighborhoods.
+    Cities in both China and the US tend to deploy more EVCSs in areas with moderate housing prices. This suggests that both low-priced and high-priced areas have relatively limited access to EVCSs.
 `)
 const imageAlt2 = "Fig. 3"
 const caption2 =
@@ -81,7 +80,7 @@ Fig. 2 | City-level comparison of the housing price index of EVCSs across two st
 .paper-text p {
     max-width: 80%;
     margin-bottom: 1.2rem;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     line-height: 1.6;
     color: var(--vp-c-text-2);
     margin: 0 auto;
