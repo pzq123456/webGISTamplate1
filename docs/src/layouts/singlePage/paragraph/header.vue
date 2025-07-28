@@ -5,6 +5,7 @@
         <span class="highlight">Where are public electric vehicle charging stations located globally?</span>
         <br>
         <span class="subtitle" ref="subtitle">Insights from a spatial planning perspective.</span>
+        <p class="watermark">This work is part of the <a class="link" href="https://globalevdata.github.io/">Global EV Data Initiative</a>.</p>
       </h1>
       <div class="links-container">
         <a href="https://globalevdata.github.io/" class="link">Global EV Data Initiative</a>
@@ -12,11 +13,6 @@
         <a href="https://github.com/XanderPENG/global-evcs" class="link">Code</a>
       </div>
       <hr class="decorative-line">
-
-      <!-- 水印文字 -->
-      <p class="watermark">This work is part of the <a href="https://globalevdata.github.io/">Global EV Data Initiative</a>.</p>
-      <!-- This piece of work is based on the Global EV Data Initaitive -->
-
       <div class="intro-text">
         <p>This study analyzed 2024 public electric vehicle charging station (EVCS) location data through a global comparative analysis at the city level, focusing on uncovering accessibility and equity issues embedded in past deployment strategies. The findings encourage mutual learning and support a more collaborative, knowledge-driven path toward sustainable and equitable urban electrification.</p>
       </div>
@@ -51,11 +47,10 @@ onMounted(() => {
 <style scoped>
 
 .watermark{
-  font-size: 1.3rem;
-  color: var(--vp-c-text-3);
+  font-size: 1.2rem;
+  color: var(--vp-c-text-2);
   max-width: 80%;
-  text-align: left;
-  font-weight: 500;
+  margin: 1rem auto;
 }
 
 .intro-section {
@@ -134,8 +129,9 @@ onMounted(() => {
   font-size: 1.2rem;
   color: var(--vp-c-text-2);
   text-decoration: underline;
-  opacity: 0.7;
-  transition: all 0.3s ease;
+  opacity: 0.8;
+  transition: color 0.3s ease, opacity 0.3s ease;
+  cursor: pointer;
 }
 
 .link:hover {
